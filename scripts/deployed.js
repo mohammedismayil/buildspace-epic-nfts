@@ -2,3 +2,4 @@
 
 //contract address for nft(tycoon nft)--0x06987f5b463018CBbcDD3b1724875b42c00C0d14-- in rinkyby
 //contract address for nft(tycoon nft)--0x810e6918308172f9843F113e77AdF6b22d2A1819-- rinkeyby - base64 image and json
+//contract address for nft(tycoonfixedwords nft)--0x039cc71777C006a01D7fa7054712dC023cE8ee90-- rinkeyby - random 3 words
