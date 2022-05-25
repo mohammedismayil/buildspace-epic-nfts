@@ -11,7 +11,7 @@ import "hardhat/console.sol";
 // We need to import the helper functions from the contract that we copy/pasted.
 import { Base64 } from "./libraries/Base64.sol";
 
-contract TycoonFixedWordsNFT is ERC721URIStorage {
+contract TycoonFixedWordsNFTV2 is ERC721URIStorage {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
@@ -20,7 +20,7 @@ contract TycoonFixedWordsNFT is ERC721URIStorage {
   string[] firstWords = ["Elegant", "Acidic", "Dumbledore", "Gutted", "Burning", "Enya"];
   string[] secondWords = ["Elastic", "Amoebas", "Grabbed", "Dukes", "Ancient", "Edgy"];
   string[] thirdWords = ["Dolphins", "Groped", "Eunuchs", "Boring", "Earnest", "Androgynous"];
-
+event NewEpicNFTMinted(address sender, uint256 tokenId);
   constructor() ERC721 ("TycoonFixedWordsNFT", "TycoonFixedWords") {
     console.log("Hello good old friend. Woah!");
   }
@@ -90,5 +90,6 @@ contract TycoonFixedWordsNFT is ERC721URIStorage {
   
     _tokenIds.increment();
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+    emit NewEpicNFTMinted(msg.sender, newItemId);
   }
 }
