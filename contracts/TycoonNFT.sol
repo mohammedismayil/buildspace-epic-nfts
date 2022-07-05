@@ -11,14 +11,14 @@ import "hardhat/console.sol";
 // We need to import the helper functions from the contract that we copy/pasted.
 import { Base64 } from "./libraries/Base64.sol";
 
-contract TycoonFixedWordsNFTV2 is ERC721URIStorage {
+contract TycoonFixedWordsv4 is ERC721URIStorage {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
   string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
-  string[] firstWords = ["Elegant", "Acidic", "Dumbledore", "Gutted", "Burning", "Enya"];
-  string[] secondWords = ["Elastic", "Amoebas", "Grabbed", "Dukes", "Ancient", "Edgy"];
+  string[] firstWords = ["Generator", "Download", "Upload", "Process", "Farmer", "Good"];
+  string[] secondWords = ["Die", "Soon", "Please", "Dukes", "Ancient", "Edgy"];
   string[] thirdWords = ["Dolphins", "Sandwich", "Burger", "Boring", "Earnest", "Androgynous"];
 event NewEpicNFTMinted(address sender, uint256 tokenId);
   constructor() ERC721 ("TycoonFixedWordsNFT", "TycoonFixedWords") {

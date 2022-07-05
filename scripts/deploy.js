@@ -1,6 +1,6 @@
 const main = async () => {
   const nftContractFactory = await hre.ethers.getContractFactory(
-    "TycoonFixedWordsNFTV2"
+    "TycoonFixedWordsv4"
   );
   const nftContract = await nftContractFactory.deploy();
   await nftContract.deployed();
