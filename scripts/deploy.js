@@ -1,7 +1,5 @@
 const main = async () => {
-  const nftContractFactory = await hre.ethers.getContractFactory(
-    "TycoonFixedWordsv4"
-  );
+  const nftContractFactory = await hre.ethers.getContractFactory("RectBOXV1");
   const nftContract = await nftContractFactory.deploy();
   await nftContract.deployed();
   console.log("Contract deployed to:", nftContract.address);

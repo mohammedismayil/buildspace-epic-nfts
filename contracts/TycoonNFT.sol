@@ -11,37 +11,37 @@ import "hardhat/console.sol";
 // We need to import the helper functions from the contract that we copy/pasted.
 import { Base64 } from "./libraries/Base64.sol";
 
-contract TycoonFixedWordsv4 is ERC721URIStorage {
+contract RectBOXV1 is ERC721URIStorage {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
-  string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
+  // string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
-  string[] firstWords = ["Generator", "Download", "Upload", "Process", "Farmer", "Good"];
-  string[] secondWords = ["Die", "Soon", "Please", "Dukes", "Ancient", "Edgy"];
-  string[] thirdWords = ["Dolphins", "Sandwich", "Burger", "Boring", "Earnest", "Androgynous"];
+  // string[] firstWords = ["Generator", "Download", "Upload", "Process", "Farmer", "Good"];
+  // string[] secondWords = ["Die", "Soon", "Please", "Dukes", "Ancient", "Edgy"];
+  // string[] thirdWords = ["Dolphins", "Sandwich", "Burger", "Boring", "Earnest", "Androgynous"];
 event NewEpicNFTMinted(address sender, uint256 tokenId);
   constructor() ERC721 ("TycoonFixedWordsNFT", "TycoonFixedWords") {
     console.log("Hello good old friend. Woah!");
   }
 
-  function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
-    uint256 rand = random(string(abi.encodePacked("Elegant", Strings.toString(tokenId))));
-    rand = rand % firstWords.length;
-    return firstWords[rand];
-  }
+  // function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
+  //   uint256 rand = random(string(abi.encodePacked("Elegant", Strings.toString(tokenId))));
+  //   rand = rand % firstWords.length;
+  //   return firstWords[rand];
+  // }
 
-  function pickRandomSecondWord(uint256 tokenId) public view returns (string memory) {
-    uint256 rand = random(string(abi.encodePacked("Elastic", Strings.toString(tokenId))));
-    rand = rand % secondWords.length;
-    return secondWords[rand];
-  }
+  // function pickRandomSecondWord(uint256 tokenId) public view returns (string memory) {
+  //   uint256 rand = random(string(abi.encodePacked("Elastic", Strings.toString(tokenId))));
+  //   rand = rand % secondWords.length;
+  //   return secondWords[rand];
+  // }
 
-  function pickRandomThirdWord(uint256 tokenId) public view returns (string memory) {
-    uint256 rand = random(string(abi.encodePacked("Dolphins", Strings.toString(tokenId))));
-    rand = rand % thirdWords.length;
-    return thirdWords[rand];
-  }
+  // function pickRandomThirdWord(uint256 tokenId) public view returns (string memory) {
+  //   uint256 rand = random(string(abi.encodePacked("Dolphins", Strings.toString(tokenId))));
+  //   rand = rand % thirdWords.length;
+  //   return thirdWords[rand];
+  // }
 
   function random(string memory input) internal pure returns (uint256) {
       return uint256(keccak256(abi.encodePacked(input)));
@@ -50,12 +50,12 @@ event NewEpicNFTMinted(address sender, uint256 tokenId);
   function makeAnEpicNFT() public {
     uint256 newItemId = _tokenIds.current();
 
-    string memory first = pickRandomFirstWord(newItemId);
-    string memory second = pickRandomSecondWord(newItemId);
-    string memory third = pickRandomThirdWord(newItemId);
-    string memory combinedWord = string(abi.encodePacked(first, second, third));
+    // string memory first = pickRandomFirstWord(newItemId);
+    // string memory second = pickRandomSecondWord(newItemId);
+    // string memory third = pickRandomThirdWord(newItemId);
+    // string memory combinedWord = string(abi.encodePacked(first, second, third));
 
-    string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
+    // string memory finalSvg = string(abi.encodePacked(baseSvg, combinedWord, "</text></svg>"));
 
     // Get all the JSON metadata in place and base64 encode it.
     string memory json = Base64.encode(
@@ -64,10 +64,9 @@ event NewEpicNFTMinted(address sender, uint256 tokenId);
                 abi.encodePacked(
                     '{"name": "',
                     // We set the title of our NFT as the generated word.
-                    combinedWord,
                     '", "description": "A simple collection of 3 random words", "image": "data:image/svg+xml;base64,',
                     // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
-                    Base64.encode(bytes(finalSvg)),
+                    'Cjxzdmcgd2lkdGg9IjQwMCIgaGVpZ2h0PSIxODAiPgogIDxnPgogIDxyZWN0IHg9IjAiIHk9IjIwIiByeD0iMjAiIHJ5PSIwMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBzdHlsZT0iZmlsbDpyZWQ7c3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo1O29wYWNpdHk6MC41IiAvPgogICA8dGV4dCB4PSIzMCIgeT0iNTUiIGZpbGw9IndoaXRlIj5SRUNUQk9YPC90ZXh0PgogIFNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLgoKICAgIDwvZz4KPC9zdmc+',
                     '"}'
                 )
             )
