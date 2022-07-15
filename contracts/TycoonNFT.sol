@@ -11,7 +11,7 @@ import "hardhat/console.sol";
 // We need to import the helper functions from the contract that we copy/pasted.
 import { Base64 } from "./libraries/Base64.sol";
 
-contract RectBOXV1 is ERC721URIStorage {
+contract RectBOXV2 is ERC721URIStorage {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
@@ -21,7 +21,7 @@ contract RectBOXV1 is ERC721URIStorage {
   // string[] secondWords = ["Die", "Soon", "Please", "Dukes", "Ancient", "Edgy"];
   // string[] thirdWords = ["Dolphins", "Sandwich", "Burger", "Boring", "Earnest", "Androgynous"];
 event NewEpicNFTMinted(address sender, uint256 tokenId);
-  constructor() ERC721 ("TycoonFixedWordsNFT", "TycoonFixedWords") {
+  constructor() ERC721 ("RectBOXV2NFT", "RectBOXV2") {
     console.log("Hello good old friend. Woah!");
   }
 
@@ -64,9 +64,9 @@ event NewEpicNFTMinted(address sender, uint256 tokenId);
                 abi.encodePacked(
                     '{"name": "',
                     // We set the title of our NFT as the generated word.
-                    '", "description": "A simple collection of 3 random words", "image": "data:image/svg+xml;base64,',
+                    '", "description": "A rectangular box, "image": "data:image/svg+xml;base64,',
                     // We add data:image/svg+xml;base64 and then append our base64 encode our svg.
-                    'Cjxzdmcgd2lkdGg9IjQwMCIgaGVpZ2h0PSIxODAiPgogIDxnPgogIDxyZWN0IHg9IjAiIHk9IjIwIiByeD0iMjAiIHJ5PSIwMjUiIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIiBzdHlsZT0iZmlsbDpyZWQ7c3Ryb2tlOmJsYWNrO3N0cm9rZS13aWR0aDo1O29wYWNpdHk6MC41IiAvPgogICA8dGV4dCB4PSIzMCIgeT0iNTUiIGZpbGw9IndoaXRlIj5SRUNUQk9YPC90ZXh0PgogIFNvcnJ5LCB5b3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgU1ZHLgoKICAgIDwvZz4KPC9zdmc+',
+                    'PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjExMCI+CiAgPHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIxMDAiIHN0eWxlPSJmaWxsOnJnYigyMDcsMTk1LDI1Mik7c3Ryb2tlLXdpZHRoOjM7c3Ryb2tlOnJnYigwLDAsMCkiIC8+CiAgU29ycnksIHlvdXIgYnJvd3NlciBkb2VzIG5vdCBzdXBwb3J0IGlubGluZSBTVkcuICAKPC9zdmc=+',
                     '"}'
                 )
             )
